@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kernels</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="sidebar">
+            <div class="profile-info">
+                <img src="../assets/images/pp.png" alt="Profile Picture">
+                <h1>Natneal Amsalu (N7y)</h1>
+                <p>Email: natnealnatiy@gmail.com</p>
+                <ul>
+                    <li><a href="https://github.com/0xn7y" target="_blank">github <i class="fab fa-github"></i></a></li>
+                    <li><a href="https://www.instagram.com/natyyy53/" target="_blank">instagram <i class="fab fa-instagram"></i> </a></li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <a href="../index.html" style="color: #00ff00;">/home</a>
+            <h2>Understanding the Kernel pt(1)</h2>
+            <p> what's good, pookies? Naty here, and today, we're gonna dive into the heart of your computer the Kernel. This thing right here? It controls everything your hardware, your programs, the whole damn deal. If you wanna understand how programs interact with the kernel, and why hackers love poking around in there' I got you covered. So let's break it down</p>
+            <br>
+
+            <h2>What the Hell is a Kernel?</h2>
+
+            <p>
+            Alright, imagine your computer is like a massive empire. At the top of this empire sits the Kernel, like the freakin’ king. It manages all the resources cpu, memory, io device while making sure all the programs (your hello world app, processes, whatever) behave themselves.
+
+            </p>
+            <p>
+                 It's the middleman between hardware and software. Your programs can't talk directly to the hardware,  They gotta go through the kernel to get access. It handles the low-level tasks like talking to your CPU, memory management and file systems
+            </p>
+
+            <br>
+            <p>
+                When a program needs something, like reading a file or sending data over the network, it doesn’t just walk up to the CPU and demand it. Hell no. It has to ask the kernel first. This is done through system calls. Think of system calls as requests or commands that programs use to ask the kernel to do stuff.
+            </p>
+
+            <h3>How programs interact with the kernel</h3>
+
+            <h4>System Calls</h4>
+            <p>
+                When you run a program and it needs to do something the kernel controls, it uses a system call.
+                like read(), write(), open(), close(), fork(), execve()..
+            </p>
+
+            <h3>User Space vs. Kernel Space</h3>
+            <p>
+                <strong>User space</strong> is where your programs run. It’s like a sandbox. Limited access, so you don’t screw up the system
+            </p>
+            <p>
+                <strong>Kernel space</strong> is where the kernel operates. This is the heart of the empire, yo. It has full access to everything, including memory and hardware
+            </p>
+
+            <h3>Interrupts</h3>
+
+            <p>
+                The kernel can get interrupted by hardware or software. Think of an interrupt as something that happens that requires immediate attention—like your CPU finishing a task or a program needing more memory
+            </p>
+            <br>
+            <h2>Kernel Code</h2>
+            <p>
+                So, what does the kernel code look like? It's some serious low-level stuff, yo. Kernel code is written in C and Assembly no JavaScript or Python here, bro. This is hardcore territory. Let's check out a simple example of a system call in the Linux kernel
+            </p>
+
+            <pre>
+                <code>
+                    ssize_t sys_write(unsigned int fd, const char __user *buf, size_t count) {
+                        // do some validation
+                        if (!access_ok(VERIFY_READ, buf, count))
+                            return -EFAULT;
+                        
+                        // Call the lower-level file system write operation
+                        return vfs_write(fd, buf, count);
+                    }
+                </code>
+            </pre>
+
+            <p>
+                sys_write(): This is the system call for write(). When a program wants to write data to a file or the console, it calls this function
+            </p>
+            <br>
+            <h2>Why we love Kernel</h2>
+            <br>
+            <p>
+                Alright, now here's the juicy part why hackers are all up in the kernel's business. See, the kernel is the one piece of software that controls everything, so if you can mess with it, you can control the whole damn system. Here's why hackers have such a love affair with the kernel:
+            </p>
+
+            <h3>Rootkits</h3>
+            <p>
+                Hackers use rootkits to hide their activities in a compromised system. Rootkits are often kernel modules (little pieces of code that can be added to the kernel) that modify how the kernel works. With a rootkit, a hacker can make it so that their malware is invisible to the operating system. You can hide files, network connections, and processes—all thanks to kernel-level control.
+            </p>
+            <br>
+            <h3>Kernel Modules</h3>
+      
+            <p>
+                Hackers often create kernel modules as part of their attacks. A kernel module is just a chunk of code that can be loaded into the kernel to extend its functionality think of it like adding new features to the kernel
+            </p>
+            <br>
+            <p>
+                That can be for hiding malware, modify system calls to change how the operating system behaves, hide connections...
+            </p>
+           
+           <p>
+               The kernel is like the heart of the system, yo. It controls everything, from hardware to software, and if you can mess with it, you can do whatever the hell you want. Thats it for this 
+               part see you in a bit
+           </p>
+           
+
+            
+
+
+            
+
+       
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N7y</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="sidebar">
+            <div class="profile-info">
+                <img src="assets/images/pp.png" alt="Profile Picture">
+                <h1>Natneal Amsalu</h1>
+                <p>natnealnatiy@gmail.com</p>
+                <ul>
+                    <li><a href="https://github.com/0xn7y" target="_blank">github <i class="fab fa-github"></i></a></li>
+                    <li><a href="https://www.instagram.com/natyyy53/" target="_blank">instagram <i class="fab fa-instagram"></i> </a></li>
+                    
+                </ul>
+                <p style="font-size: 71%;">what's up!, You've landed on my space, where I dig into the world of cybersecurity, programming, and all kinds of new path am learning. Whether I'm cracking code, breaking into systems, or building something sick like hello world app, this is where I share it all. I’m all about leveling up every damn day learning, hacking, and pushing the limits. You wanna know what's up? Stick around, and you'll catch some killer write-ups, code breakdowns.
+                </p>
+            </div>
+        </div>
+
+        <!-- /// -->
+        <div class="main-content">
+            <h2>Writeups & Posts</h2>
+            <div class="post-list" id="post-list">
+                <!-- Each slide represents a "page" of posts -->
+                <div class="post-slide active">
+                    <a href="posts/post1.html">
+                        <h3>Web Server with Sockets</h3>
+                        <p>Build a web server with python</p>
+                    </a>
+                    <a href="posts/post2.html">
+                        <h3>BOF</h3>
+                        <p>smashing stacks like a pro</p>
+                    </a>
+                    <a href="posts/post3.html">
+                        <h3>Understanding the Kernel</h3>
+                        <p>Guide to the heart of the system</p>
+                    </a>
+                    
+                </div>
+
+                <div class="post-slide">
+                    
+                    <a href="posts/post4.html">
+                        <h3>posting soon..</h3>
+                        <p>...</p>
+                    </a>
+                </div>
+
+               
+            </div>
+ 
+            <div class="pagination" id="pagination">
+                <button class="active" onclick="showSlide(0)">1</button>
+                <button onclick="showSlide(1)">2</button>
+                <button onclick="showSlide(2)">3</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(slideIndex) {
+            const slides = document.querySelectorAll('.post-slide');
+            const buttons = document.querySelectorAll('.pagination button');
+            
+            // Hide all slides
+            slides.forEach(slide => slide.classList.remove('active'));
+            
+            // Remove active class from all buttons
+            buttons.forEach(button => button.classList.remove('active'));
+
+            // Show the selected slide
+            slides[slideIndex].classList.add('active');
+
+            // Highlight the current button
+            buttons[slideIndex].classList.add('active');
+
+            currentSlide = slideIndex;
+        }
+    </script>
+
+
+
+</body>
+</html>

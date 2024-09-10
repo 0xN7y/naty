@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOFs</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="sidebar">
+            <div class="profile-info">
+                <img src="../assets/images/pp.png" alt="Profile Picture">
+                <h1>Natneal Amsalu (N7y)</h1>
+                <p>Email: natnealnatiy@gmail.com</p>
+                <ul>
+                    <li><a href="https://github.com/0xn7y" target="_blank">github <i class="fab fa-github"></i></a></li>
+                    <li><a href="https://www.instagram.com/natyyy53/" target="_blank">instagram <i class="fab fa-instagram"></i> </a></li>
+                    
+                </ul>
+            </div>
+        </div>
+  
+        <div class="main-content">
+            <a href="../index.html" style="color: #00ff00;">/home</a>
+            <h1>Guide to smashing stacks like a pro</h1>
+
+            <p>
+                what’s up, pookies? Naty back again, and today, we’re about to break into some serious hacker shit, Buffer Overflows. That’s right if you wanna learn how to mess with memory, crash programs, or even take control of a system, you gotta understand how to smash buffers like you smash... well, you get it. So, let’s start.
+            </p>
+
+            <h2>What the Hell is a Buffer Overflow?</h2>
+
+            <p>
+                Alright, let me break it down for you, a buffer is just a chunk of memory. Think of it like a box where you store your junk. A buffer overflow happens when you put too much data into that box, so much that it spills out and messes with the other junk nearby. In our world, that "junk" is code or memory addresses things we can mess with if we play it right
+            </p>
+            <br>
+            <p>
+                Picture this: you’ve got a stack, right? Memory is arranged properly. But if you overflow it with too much data, it spills over onto the next one, and you can smash the stack. The goal? Overwrite the return address to hijack the flow of the program and make it do what you want.
+            </p>
+            <br>
+
+            <h2>Step 1: The bad c code </h2>
+
+            <img src="../assets/images/p2-bufcode.png">
+
+            <h2>What’s going on here?</h2>
+            <p>
+                <code>strcpy(buffer, argv[1]);</code> This is our weak link, It takes an input string, and dumps it into a buffer without checking the size. The strcpy is dumb as hell it doesn’t care if your input is too big for the buffer. That’s where we strike.
+                <code>here()</code> This is what we wanna run, but the program doesn’t call it directly. We’re gonna make it happen by overflowing the buffe
+            </p>
+
+            <p>
+                So, how do we exploit this? were gonna stuff the buffer with more data than it can handle. The goal is to overwrite the return address of the function. That way, when the program tries to return it jumps to our desired location.
+            </p>
+            <br>
+            <p>1, Fill the buffer with junk data</p>
+            <p>2, Overwrite the return address with the address of here()</p>
+            <p>3, Find the Offset</p>
+            <p>4, Find the Address </p>
+            <p>5, Overwrite the Return Address</p><br>
+            
+            <h2></h2>
+            <p>
+                Compile your C code with disabled stack protection (yeah, we’re cheating a little, but we’re here to learn) and Makes the stack executable (-z execstack) . Now take long input and pass it to the program
+            </p>
+
+            <pre>
+                <code>$python -c 'print "A" * 71' | ./test 
+                 Segmentation fault
+                </code>
+            </pre>
+            <br>
+            <p>This will result in seg fault because input is too big for the buffer</p>
+            <br>
+            <h2>address of here()</h2>
+            <img src="../assets/images/p2-r2func.png">
+            <br>
+            <p>The 0x00001155 address we convert it into little-endian format like this 'U\x11\x00\x00\x00\x00\x00\x00' its just reversed and added lettle null bytes</p>
+            <pre>
+                <code>
+                    $python -c 'print "A" * 71 + "U\x11\x00\x00\x00\x00\x00\x00"' | ./test 
+                     you poped it 
+                </code>
+            </pre>
+
+            <br>
+            <p>
+                The program jumped to here(). You’ve officially smashed the stack!
+            </p>
+
+            <br>
+            <h2>Real world protection</h2>
+                <p>
+                    Look pookie, this is fun and all, but don’t think real systems are just gonna let you wlak in and smash their stacks. There’s a ton of stuff out there to stop this from working
+                </p>
+                <p>         
+                    ASLR: Randomizes the memory addresses to make it harder for you to find the return address.
+                </p>
+                <p>DEP: Stops you from executing code in non-executable regions of memory.</p>
+                <p>      
+                    Stack Canaries: Adds special values before the return address that, if changed, cause the program to crash
+                </p>
+
+            <h2>Wrap It Up,</h2>
+            <p>
+                That's it You've just taken your first step into the world of buffer overflows. Sure, we didn't go full pro with advanced exploit techniquos like ROP or bypassing ASLR, but you gotta crawl before you can walk Now go out there, mess with some vulnerable programs, and remember: don’t get caught. You do not want the feds knocking on your door just because you got a little too into this.
+            </p>
+
+        
+
+
+
+
+            
+
+       
+        </div>
+    </div>
+
+</body>
+</html>

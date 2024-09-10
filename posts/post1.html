@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building web server</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="sidebar">
+            <div class="profile-info">
+                <img src="../assets/images/pp.png" alt="Profile Picture">
+                <h1>Natneal Amsalu (N7y)</h1>
+                <p>Email: natnealnatiy@gmail.com</p>
+                <ul>
+                    <li><a href="https://github.com/0xn7y" target="_blank">github <i class="fab fa-github"></i></a></li>
+                    <li><a href="https://www.instagram.com/natyyy53/" target="_blank">instagram <i class="fab fa-instagram"></i> </a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- Main content area -->
+        <div class="main-content">
+            <a href="../index.html" style="color: #00ff00;">/home</a>
+            <h2>Web Server with Sockets</h2>
+            <p>what's up, pookeis? It's Naty here, and today, I'm about to break down something you didn’t know you needed a freakin web server built with python sockets Yeah, no need for that fancy Flask or Django crap. We're going raw, using straight up Python like a boss. Let’s start</p>
+            <br>
+            <h2>Why the Hell Use Sockets?</h2>
+
+            <p>
+            First off, let me hit you with some knowledge. The web is full of servers, right? Whenever you hit a website, you’re talking to a server. Normally, you’d use something pre-packaged like Apache or Nginx, but we’re gonna go all full on this thing and make our own from scratch.
+
+            Sockets are like the bare-ass metal. You use 'em to create connections send data back and forth, and basically be the Heisenberg of data transfers
+
+            </p>
+
+            <pre>
+                <code>
+                    import socket
+                </code>
+            </pre>
+            <p>
+                Sockets are built into python, which means we don't need any extra libraries
+            </p>
+
+            <pre>
+                <code>
+                    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                    server_socket.bind(('0.0.0.0', 8080))
+                    server_socket.listen(5)
+                </code>
+            </pre>
+
+
+            <h2>Here's what's going down</h2>
+            <p><code>socket.AF_INET</code> This is IPv4, the classic. We’re not doing any of that IPv6 stuff </p>
+            
+            <p>
+            <code>socket.SOCK_STREAM</code> We’re using TCP, which is reliable. Unlike some people in my life </p>
+            
+            <p><code>bind(('0.0.0.0', 8080))</code> We're telling the server to listen on port 8080. If you wanna be real ballsy, go for port 80, but you'll need admin rights for that. stick to 8080 for now <br></p>
+            
+            <p><code>listen(5)</code> We're telling the server to listen for incoming connections. The number in parentheses means how many connections we can backlog before things start exploding. You don't wanna go too high, otherwise, you/re just asking for trouble
+            </p>
+
+            <h2>Step 3: Accept Connections Like a Boss</h2>
+            <p>Now we gotta make the server respond to requests. This is where the magic happens</p>
+            <pre>
+                <code>
+                    while True:
+                        client_socket, addr = server_socket.accept()
+                        print(f'Connection from {addr}.')
+
+                        request = client_socket.recv(1024)
+                        print(request.decode('utf-8'))
+                </code>
+            </pre>
+
+            <p>
+                <code>server_socket.accept()</code> This is like opening the door to your house. It accepts a connection and gives us the client’s socket and address.
+                <code>client_socket.recv(1024)</code> We're receiving data from the client, 1024 bytes at a time. That’s enough for most HTTP requests.
+            </p>
+
+
+            <p>
+                You know how you go to a website and you get a page back? Yeah, we’re gonna send back a real basic html page
+            </p>
+
+            <pre>
+                <code>
+                    response = 'HTTP/1.1 200 OK\n'
+                    response += 'Content-Type: text/html\n\n'
+                    response += '&lt;html&gt;&lt;body&gt;&lt;h1&gt;Yo, pookie! This is your web server!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+'
+
+                    client_socket.sendall(response.encode('utf-8'))
+                    client_socket.close()
+                </code>
+            </pre>
+
+            <p>
+                <code>HTTP/1.1 200 OK</code> We're saying, 'the connection's all good. Here's your damn page'.
+                <code>Content-Type: text/html</code> This tells the browser we're sending html, so it knows what to do with it
+                Then we send a simple html page
+            </p>
+            <br>
+            <img src="../assets/images/p1-web.png">
+
+            <h2>What's Next</h2>
+            <p>
+                You could just sit here and admire your work, but I say: take this server, and start adding more shit to it handle different types of requests, serve files, whatever! Hell, if you’re feeling cocky you can even add routing.
+
+                Happy coding, Keep it tight
+            </p>
+
+
+
+
+            
+
+       
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LCG</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="sidebar">
+            <div class="profile-info">
+                <img src="../assets/images/pp.png" alt="Profile Picture">
+                <h1>Natneal Amsalu (N7y)</h1>
+                <p>Email: natnealnatiy@gmail.com</p>
+                <ul>
+                    <li><a href="https://github.com/0xn7y" target="_blank">github <i class="fab fa-github"></i></a></li>
+                    <li><a href="https://www.instagram.com/natyyy53/" target="_blank">instagram <i class="fab fa-instagram"></i> </a></li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <a href="../index.html" style="color: #00ff00;">/home</a>
+            <h2>Choosing Random Number</h2>
+            <p> what's up, Naty here, and today pulling off some cool random number action in python. we're doing it without importing any modules Yeah, no random no numpy none of that fancy stuff. We're keeping it raw, keeping it basic for  learning pupose 
+
+
+            </p>
+            <br>
+
+            <h2>Linear congruential generator</h2>
+
+            <p>
+            A linear congruential generator (LCG) is an algorithm that yields a sequence of pseudo-randomized numbers calculated with a discontinuous piecewise linear equation. <a href="https://en.wikipedia.org/wiki/Linear_congruential_generator" style="text-decoration: none;">--wiki. </a> <br>
+            so first we're gonna use an LCG its like a function  You give it a seed, it gives you back numbers that feel random.  <br>Here's the formula:
+            </p>
+            <code style="margin-left: 10%;">Xn+1 = (a * Xn + c) % m</code>
+            <p>Where</p>
+            <ul>
+                <li>a is the multiplier</li>
+                <li>c is the increment</li>
+                <li>m is the modulus</li>
+                <li>Xn is the seed (which changes every time)</li>
+            </ul>
+
+            <p>
+               We will use int value for a,c,m every time we generate and use the above formula 
+            </p>
+
+            <h4>code</h4>
+            <img src="../assets/images/randcode.png">
+            <br>
+            <p>
+                So here’s how it works, straight-up:
+            </p>
+
+            <p>
+               1, lcg(seed): This function takes the current seed, runs it through the LCG formula, and spits out a new number. That’s our "random" number generator.
+            </p>
+
+            <p>
+                2, randint(low, high, seed): This one gives us a random number between the low and high values you pass in. It updates the seed with each call because you gotta change things up to keep it real.
+            </p>
+
+            <p>
+               3, Seed: We start with a seed value (I went with 1234 here, but you do you). Every time you call the randint function, it generates a new "random" number and updates the seed.
+            </p>
+            <p>
+            
+            <p>
+               This code is raw and it works. Each time you run the loop, it prints a random number between 0 and 100. No libraries, no imports, just Python and math, This is how real coders hustle but Look, This isn't some high-security, unbreakable code. If someone knows your seed and the formula, 
+              they can figure out your numbers. So don’t go using this for anything sensitive, like encryption, session key...
+
+           </p>
+           <h3>Wrapping It Up</h3>
+           <p>And there you go you've built your own random number generator, without relying on any fancy libraries. That's how you learn, that's how you grow, and that's how you roll like a real one. Now you’re ready to generate numbers keep it simple, Keep coding, and always stay random, byeee..</p>
+
+            <h4>Stay tuned</h4>
+
+
+            
+
+       
+        </div>
+    </div>
+
+</body>
+</html>

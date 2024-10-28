@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N7y</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style type="text/css">
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 4%;
+    
+}
+
+.project-card {
+    margin-top: 10px;
+    background-color: #111111;
+    border: 1px solid #00ff00;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #00ff00;
+    width: 250px;
+   /* width: 40%;*/
+}
+
+.project-card:hover {
+    
+}
+
+
+@media only screen and (max-width: 480px) {
+    .project-grid {
+
+        margin-left: 8%;
+    }
+}
+
+@media only screen and (max-width: 768px) { 
+    .project-grid {
+
+        margin-left: 8%;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="sidebar">
+            <div class="profile-info">
+                <img src="assets/images/pp.png" alt="Profile Picture">
+                <h1>Natneal Amsalu</h1>
+                <p>natnealnatiy@gmail.com</p>
+                <ul>
+                    <li><a href="https://github.com/0xn7y" target="_blank">github <i class="fab fa-github"></i></a></li>
+                    <li><a href="https://www.instagram.com/natyyy53/" target="_blank">instagram <i class="fab fa-instagram"></i> </a></li>
+                    <!-- <li><img style="height: 20px; border-radius: 8px;" src="https://www.codewars.com/ users/g964/badges/micro" ></li>  -->
+                    
+                </ul>
+                <p style="font-size: 71%;">what's up!, You've landed on my space, where I dig into the world of cybersecurity, programming, and all kinds of new path am learning. Whether I'm cracking code, breaking into systems, or building something sick like hello world app, this is where I share it all. I’m all about leveling up every damn day learning, hacking, and pushing the limits. You wanna know what's up? Stick around, and you'll catch some killer write-ups, code breakdowns.
+                </p>
+<!--                 <p>20-Agust-22</p> -->
+            </div>
+        </div>
+
+        <!-- /// -->
+        <div class="main-content">
+            <h2>Projects</h2>
+            <a href="index.html" style="color: #00ff00;">/home</a>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div><h2>Monitoring system events </h2></div>
+                    
+                    <p>Built a system that traces system events such as PID, Connection, System processes and diplays at real time in web dashboard that supports authentication.</p>
+
+                    <p class="shocase">Show casing my skill/interest in <strong>System Programming</strong>,<strong>Full Stack Developer</strong>,<strong>Threat Intelligence</strong></p>
+    
+                </div>
+
+                <div class="project-card">
+                    <div><h2>AI-WAF</h2></div>
+                    
+                    <p>Built a program/model that analyzes logs to find threats using machine learning techniques and a dataset of labeled request patterns which can classify requests as normal or malicious.</p>
+                    <p class="shocase">Show casing my skill/interest in <strong>Machine Learning</strong>,<strong>AI</strong>,<strong>Blue Teaming</strong>, and <strong>Threat Intelligence</strong></p>
+    
+                </div>
+
+               <div class="project-card">
+                    <div><h2>Sqlexplore</h2></div>
+                    
+                    <p>Built a web based Mysql administration tool that helps users to efforlessly view, edit and manage databases with authentication.</p>
+                    <p class="shocase">Show casing my skill/interest in <strong>Full-Stack Development, Database Management, API Development, Problem Solving</strong></p>
+    
+                </div>
+
+                <div class="project-card">
+                    <div><h2>Stealer</h2></div>
+                    
+                    <p>Built a Malware that Still info from victom with capabilites of presistance.</p>
+                    <p class="shocase">Show casing my skill/interest in <strong>Malware Development</strong>,<strong></strong></p>
+    
+                </div>
+
+
+        </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(slideIndex) {
+            const slides = document.querySelectorAll('.post-slide');
+            const buttons = document.querySelectorAll('.pagination button');
+            
+            // Hide all slides
+            slides.forEach(slide => slide.classList.remove('active'));
+            
+            // Remove active class from all buttons
+            buttons.forEach(button => button.classList.remove('active'));
+
+            // Show the selected slide
+            slides[slideIndex].classList.add('active');
+
+            // Highlight the current button
+            buttons[slideIndex].classList.add('active');
+
+            currentSlide = slideIndex;
+        }
+    </script>
+
+
+
+</body>
+</html>

@@ -90,15 +90,15 @@
                     <p>Built a system that traces system events such as TTY, Connection, System processes, Hashes of active process and diplays at real time in web dashboard that supports authentication.</p>
 
                     <p class="shocase">Show casing my skill/interest in <strong>System Programming</strong>,<strong>Full Stack Developer</strong>,<strong>Threat Intelligence</strong></p>
-    
+                    <p>August, 2024</p>
                 </div>
 
                 <div class="project-card">
                     <div><h2>AI-IDS</h2></div>
                     
-                    <p>Built a program/model that analyzes logs to find threats using machine learning techniques and a dataset of labeled request patterns which can classify requests as normal or malicious.</p>
-                    <p class="shocase">Show casing my skill/interest in <strong>Machine Learning</strong>,<strong>AI</strong>,<strong>Blue Teaming</strong>, and <strong>Threat Intelligence</strong></p>
-    
+                    <p>Built a program and traind model that analyzes logs to find threats using machine learning techniques and a dataset of labeled request patterns which can classify requests as normal or malicious.</p>
+                    <p class="shocase">Show casing my skill/interest in <strong>Machine Learning</strong>,<strong>AI</strong>,<strong>Blue Teaming, Cyber Security</strong>, and <strong>Threat Intelligence</strong></p>
+                    <p>July, 2024</p>
                 </div>
 
                <div class="project-card">
@@ -106,15 +106,25 @@
                     
                     <p>Built a web based Mysql administration tool that helps users to efforlessly view, edit and manage databases with authentication.</p>
                     <p class="shocase">Show casing my skill/interest in <strong>Full-Stack Development, Database Management, API Development, Problem Solving</strong></p>
-    
+                    <p>Nov, 2023</p>
                 </div>
 
+                <div class="project-card">
+                    <div><h2>PacketGrep</h2></div>
+                    
+                    <p>Built a tool that detect and capture certain type of packets  and malicious behaivor at real time from network traffic</p>
+
+                    <p class="shocase">Show casing my skill/interest in <strong>Networking, Cyber Security, System Programming, Network Traffic Analysis, Threat Intelligence</strong></p>
+                    <p><p>July, 2022</p></p>
+                </div>
+                
+                
                 <div class="project-card">
                     <div><h2>Stealer</h2></div>
                     
                     <p>Built a Malware that Steal info from victom with capabilites of presistance.</p>
-                    <p class="shocase">Show casing my skill/interest in <strong>Malware Development</strong>,<strong></strong></p>
-    
+                    <p class="shocase">Show casing my skill/interest in <strong>Malware Development</strong></p>
+                    <p><p>Sept, 2024</p></p>
                 </div>
 
 
@@ -128,17 +138,9 @@
         function showSlide(slideIndex) {
             const slides = document.querySelectorAll('.post-slide');
             const buttons = document.querySelectorAll('.pagination button');
-            
-            // Hide all slides
             slides.forEach(slide => slide.classList.remove('active'));
-            
-            // Remove active class from all buttons
             buttons.forEach(button => button.classList.remove('active'));
-
-            // Show the selected slide
             slides[slideIndex].classList.add('active');
-
-            // Highlight the current button
             buttons[slideIndex].classList.add('active');
 
             currentSlide = slideIndex;
